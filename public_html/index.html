@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Andrey chat</title>
+    <script>
+        var ws;
+
+        function init() {
+            ws = new WebSocket("ws://localhost:8080/chat");
+            ws.onopen = function(event) {
+            }
+
+            ws.onmessage = function(event) {
+            var $textarea = document.getElementById("messages");
+            $textarea.value = $textarea.value + event.data +"\n";
+            }
+
+            ws.onclose = function(event) {
+            }
+        };
+
+        function sendMessage() {
+            messageField = document.getElementById("message");
+            ws.send(messageField.value);
+            messagaField.value = "";
+        }
+    </script>
+</head>
+<body onload="init();">
+<textarea rows="20" cols="50" id="messages" readonly="readonly"></textarea><br>
+<form>
+    <input type="text" id="message"><br>
+    <input type="submit" value="Send" onclick="sendMessage();">
+</form>
+</body>
+</html>
