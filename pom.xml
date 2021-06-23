@@ -41,7 +41,7 @@
     </build>
 
     <properties>
-        <org.eclipse.jetty.version> 9.3.24.v20180605</org.eclipse.jetty.version>
+        <org.eclipse.jetty.version>9.4.41.v20210516</org.eclipse.jetty.version>
     </properties>
 
     <dependencies>
